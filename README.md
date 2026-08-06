@@ -284,7 +284,4 @@ ORDER BY Attrition_Rate DESC;
 7. Support Newly Promoted Employees — Recently promoted staff show a surprisingly high attrition rate of 13.6%, suggesting they may face increased pressure without adequate support. Transition support and leadership coaching for new promotees is recommended.
 
 ## Author
-Adesoji Justina Ayomide
-Radiography Student | Healthcare Data Analyst
-Federal University Oye-Ekiti, Nigeria
-📧 ayomidejustina3@gmail.com
+Adesoji Justina Ayomide Radiography Student | Healthcare Data Analyst | Nigeria | www.linkedin.com/in/justina-ayomide | ayomidejustina3@gmail.com
