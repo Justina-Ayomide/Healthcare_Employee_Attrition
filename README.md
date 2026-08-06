@@ -1,14 +1,14 @@
-# Project Overview
+## Project Overview
 This project analyzes employee attrition patterns within a healthcare organization covering three departments Cardiology, Maternity, and Neurology and four job roles including Nurses, Therapists, Administrative staff, and Other roles.
 Using a dataset of 1,676 employees, the analysis identifies key attrition drivers, workforce demographics, and retention risk factors to help healthcare management make data-driven decisions that reduce turnover and improve staff retention.
 The project covers the full data analytics pipeline from data cleaning in Excel, structured querying in MySQL, to an interactive two-page Power BI dashboard.
 
-# Problem Statement
+## Problem Statement
 Employee attrition in healthcare settings poses significant challenges to patient care quality, operational efficiency, and organizational costs. High staff turnover disrupts care continuity, increases recruitment and training expenses, and places additional pressure on retained employees.
 This project seeks to understand the scale and patterns of employee attrition within a healthcare organization by examining workforce demographics, departmental trends, job satisfaction levels, compensation, overtime demands, and career progression factors.
 The goal is to provide actionable insights that enable HR teams and healthcare management to identify high-risk employee segments and implement targeted retention strategies.
 
-# Business Questions
+## Business Questions
 What is the overall attrition rate across the organization?
 Which department has the highest attrition rate?
 How does attrition differ between male and female employees?
@@ -23,23 +23,23 @@ Do employees who work overtime leave more frequently?
 How does monthly income level affect attrition?
 Which combination of factors presents the highest attrition risk?
 
-# Tools Used
+## Tools Used
 1. Microsoft Excel   : Data cleaning, feature engineering, exploratory review
 2. MySQL             : Structured data analysis and querying
 3. Power BI          : Interactive dashboard development and visualization
 4. DAX               : Custom KPI measures and calculated metrics
 5. GitHub            : Project documentation and portfolio publishing
 
-# Dataset Information 
+## Dataset Information 
 1. Source            : IBM Watson Healthcare Modified Dataset
 2. Total Records     : 1,676 employees
 3. Departments       : Cardiology, Maternity, Neurology
 4. Job Roles         : Administrative, Nurse, Therapist, Other
 5. Total Columns     : 39 (after cleaning and feature engineering)
 
-# Data Preparation
+## Data Preparation
 Data cleaning and feature engineering were performed in Microsoft Excel before importing into MySQL.
-## Steps taken:
+### Steps taken:
 1. Removed junk columns with constant values: Over_18, Employee_Count, Standard_Hours
 2. Standardized job role values: merged Admin → Administrative using Find & Replace
 3. Added Education_Level label column mapping numeric values (1–5) to: Below College, College, Bachelor, Master, Doctor
@@ -60,14 +60,14 @@ Data cleaning and feature engineering were performed in Microsoft Excel before i
 - 20+ years → Long Service Professionals
 10. Exported cleaned dataset as CSV and imported into MySQL database healthcare_attrition
 
-  # SQL Analysis
+  ## SQL Analysis
   All analysis was performed in MySQL using the healthcare_attrition database
 
--- Create Database
+### -- Create Database
 CREATE DATABASE healthcare_attrition;
 USE healthcare_attrition;
 
--- Create Table
+### -- Create Table
 CREATE TABLE employee_attrition (
     Employee_ID INT,
     Age INT,
@@ -110,18 +110,18 @@ CREATE TABLE employee_attrition (
     Years_With_Current_Manager INT
 );
 
--- Total Employees
+### -- Total Employees
 SELECT COUNT(*) AS Total_Employee
 FROM employee_attrition;
 
---  Overall Attrition Rate
+### --  Overall Attrition Rate
 SELECT 
     COUNT(*) AS Total_Employees,
     SUM(Attrition_Flag) AS Total_Attrition,
     ROUND(SUM(Attrition_Flag) * 100 / COUNT(*), 1) AS Attrition_Rate
 FROM employee_attrition;
 
--- Gender Distribution
+### -- Gender Distribution
 SELECT 
     Gender,
     COUNT(*) AS Total_Employees,
@@ -131,7 +131,7 @@ FROM employee_attrition
 GROUP BY Gender
 ORDER BY Attrition_Rate DESC;
 
--- Attrition by Department
+### -- Attrition by Department
 SELECT 
     Department,
     COUNT(*) AS Total_Employees,
@@ -141,7 +141,7 @@ FROM employee_attrition
 GROUP BY Department
 ORDER BY Attrition_Rate DESC;
 
--- Attrition by Job Role
+### -- Attrition by Job Role
 SELECT 
     Job_Role,
     COUNT(*) AS Total_Employees,
@@ -151,7 +151,7 @@ FROM employee_attrition
 GROUP BY Job_Role
 ORDER BY Attrition_Rate DESC;
 
--- Attrition by Job Level
+### -- Attrition by Job Level
 SELECT 
     Job_Level,
     COUNT(*) AS Total_Employees,
@@ -161,7 +161,7 @@ FROM employee_attrition
 GROUP BY Job_Level
 ORDER BY Attrition_Rate DESC;
 
--- Attrition by Promotion Status
+###  -- Attrition by Promotion Status
 SELECT 
     Promotion_Status,
     COUNT(*) AS Total_Employees,
@@ -171,7 +171,7 @@ FROM employee_attrition
 GROUP BY Promotion_Status
 ORDER BY Attrition_Rate DESC;
 
--- Attrition by Tenure Band
+### -- Attrition by Tenure Band
 SELECT 
     Tenure_Band,
     COUNT(*) AS Total_Employees,
@@ -181,7 +181,7 @@ FROM employee_attrition
 GROUP BY Tenure_Band
 ORDER BY Attrition_Rate DESC;
 
--- Work Life Balance
+### -- Work Life Balance
 SELECT 
     Work_Life_Balance_Label,
     COUNT(*) AS Total_Employees,
@@ -191,7 +191,7 @@ FROM employee_attrition
 GROUP BY Work_Life_Balance_Label
 ORDER BY Attrition_Rate DESC;
 
--- Job Satisfaction
+### -- Job Satisfaction
 SELECT 
     CASE 
         WHEN Job_Satisfaction = 1 THEN 'Low'
@@ -206,7 +206,7 @@ FROM employee_attrition
 GROUP BY Job_Satisfaction_Label
 ORDER BY Attrition_Rate DESC;
 
--- Monthly Income
+### -- Monthly Income
 SELECT 
     Monthly_Income_Band,
     COUNT(*) AS Total_Employees,
@@ -216,7 +216,7 @@ FROM employee_attrition
 GROUP BY Monthly_Income_Band
 ORDER BY Attrition_Rate DESC; 
 
--- Overtime
+### -- Overtime
 SELECT 
     Over_Time,
     COUNT(*) AS Total_Employees,
@@ -226,7 +226,7 @@ FROM employee_attrition
 GROUP BY Over_Time
 ORDER BY Attrition_Rate DESC;
 
-# Key Findings
+## Key Findings
 1. Overall
 - Total employees: 1,676 | Employees who left: 199 (11.9%)
 2. Department
@@ -239,8 +239,8 @@ ORDER BY Attrition_Rate DESC;
 - Other job role has the highest attrition at 16.3%; Administrative the lowest at 0.8%
 - Low-level employees leave at 14.3% vs 2.5% for High-level employees
 
-# Risk Factors
-## Risk Factor	                   :   Attrition Rate
+## Risk Factors
+### Risk Factor	                   :   Attrition Rate
 5. Overtime (Yes)	                 :    29.2%
 6. Bad Work-Life Balance	         :    26.7%
 7. Early Stage in Role (0–2 yrs)	 :    19.3%
@@ -251,14 +251,14 @@ ORDER BY Attrition_Rate DESC;
 12. Recently Promoted	             :    13.6%
 13. Nurse Role	                   :    13.0%
 
-# Dashboard Preview
-### Page 1 — Employee Attrition Analysis Dashboard
+## Dashboard Preview
+#### Page 1 — Employee Attrition Analysis Dashboard
 ![Employee Attrition Analysis Dashboard](healthcare_attrition_dashboard.png.PNG)
 
-### Page 2 — Healthcare Attrition Risk Factors Dashboard
+#### Page 2 — Healthcare Attrition Risk Factors Dashboard
 ![Healthcare Attrition Risk Factors Dashboard](healthcare_attrition_risk_factors.png.PNG)
 
-# DAX Measures
+## DAX Measures
 1. Total Employees = COUNTROWS('healthcare_attrition employee_attrition')
 
 2. Total Attrition = SUM('healthcare_attrition employee_attrition'[Attrition_Flag])
@@ -269,7 +269,7 @@ ORDER BY Attrition_Rate DESC;
 
 5. Bad WLB Attrition % = CALCULATE('healthcare_attrition employee_attrition'[Total Attrition %],'healthcare_attrition employee_attrition'[Work_Life_Balance_Label]="Bad")
 
-# Recommendations
+## Recommendations
 1. Address Overtime Urgently — With a 29.2% attrition rate among overtime workers (nearly 6x the non-overtime rate), management must review staffing levels, redistribute workload, and enforce reasonable working hours especially in Cardiology and Maternity departments.
 
 2. Improve Work-Life Balance Programmes — Employees reporting bad work-life balance leave at 26.7%. Flexible scheduling, mental health support, and workload management initiatives should be prioritized.
@@ -283,10 +283,8 @@ ORDER BY Attrition_Rate DESC;
 
 7. Support Newly Promoted Employees — Recently promoted staff show a surprisingly high attrition rate of 13.6%, suggesting they may face increased pressure without adequate support. Transition support and leadership coaching for new promotees is recommended.
 
-# Author
+## Author
 Adesoji Justina Ayomide
 Radiography Student | Healthcare Data Analyst
 Federal University Oye-Ekiti, Nigeria
-🔗 LinkedIn
-🐙 GitHub
 📧 ayomidejustina3@gmail.com
