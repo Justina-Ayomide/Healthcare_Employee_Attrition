@@ -253,10 +253,10 @@ ORDER BY Attrition_Rate DESC;
 
 # Dashboard Preview
 ### Page 1 — Employee Attrition Analysis Dashboard
-![Employee Attrition Analysis Dashboard](healthcare_attrition_dashboard.png)
+![Employee Attrition Analysis Dashboard](healthcare_attrition_dashboard.png.PNG)
 
 ### Page 2 — Healthcare Attrition Risk Factors Dashboard
-![Healthcare Attrition Risk Factors Dashboard](healthcare_attrition_risk_factors.png)
+![Healthcare Attrition Risk Factors Dashboard](healthcare_attrition_risk_factors.png.PNG)
 
 # DAX Measures
 1. Total Employees = COUNTROWS('healthcare_attrition employee_attrition')
