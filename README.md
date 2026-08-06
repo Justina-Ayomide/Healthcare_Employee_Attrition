@@ -53,7 +53,7 @@ Data cleaning and feature engineering were performed in Microsoft Excel before i
 - ≤ 2 years → Recently Promoted
 - ≤ 5 years → Promotion In Progress
 - ≤ 10 years → Promotion Due
-- >10 years → Promotion Overdue
+- >10+ years → Promotion Overdue
 9. Added Tenure_Band based on total years at company:
 - 0–2 years → Early Career Staffs
 - 3–5 years → Developing Professionals
