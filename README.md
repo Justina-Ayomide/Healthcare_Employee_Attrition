@@ -1,6 +1,8 @@
+## Executive Summary
+Analysis of 1,676 healthcare employees revealed an overall attrition rate of 11.9%. Cardiology experienced the highest turnover, while overtime, poor work-life balance, low income, and early career tenure emerged as the strongest predictors of attrition. The findings support targeted retention strategies that could reduce turnover and improve workforce stability
+
 ## Project Overview
-This project analyzes employee attrition patterns within a healthcare organization covering three departments Cardiology, Maternity, and Neurology and four job roles including Nurses, Therapists, Administrative staff, and Other roles.
-Using a dataset of 1,676 employees, the analysis identifies key attrition drivers, workforce demographics, and retention risk factors to help healthcare management make data-driven decisions that reduce turnover and improve staff retention.
+Using a dataset of 1,676 employees, this project analyzes workforce attrition across departments, job roles, and employee demographics to identify retention risks and provide actionable recommendations for hospital management
 The project covers the full data analytics pipeline from data cleaning in Excel, structured querying in MySQL, to an interactive two-page Power BI dashboard.
 
 ## Problem Statement
@@ -51,7 +53,7 @@ Data cleaning and feature engineering were performed in Microsoft Excel before i
 - ≤ 2 years → Recently Promoted
 - ≤ 5 years → Promotion In Progress
 - ≤ 10 years → Promotion Due
-- > 10 years → Promotion Overdue
+- 10 years → Promotion Overdue
 9. Added Tenure_Band based on total years at company:
 - 0–2 years → Early Career Staffs
 - 3–5 years → Developing Professionals
@@ -228,7 +230,8 @@ ORDER BY Attrition_Rate DESC;
 
 ## Key Findings
 1. Overall
-- Total employees: 1,676 | Employees who left: 199 (11.9%)
+- Total employees: 1,676
+- Employees who left: 199 (11.9%)
 2. Department
 - Cardiology has the highest attrition at 13.9%
 - Neurology has the lowest at 7.7%
@@ -284,4 +287,4 @@ ORDER BY Attrition_Rate DESC;
 7. Support Newly Promoted Employees — Recently promoted staff show a surprisingly high attrition rate of 13.6%, suggesting they may face increased pressure without adequate support. Transition support and leadership coaching for new promotees is recommended.
 
 ## Author
-Adesoji Justina Ayomide Radiography Student | Healthcare Data Analyst | Nigeria | www.linkedin.com/in/justina-ayomide | ayomidejustina3@gmail.com
+Adesoji Justina Ayomide | Data Analyst | Healthcare Analytics | SQL |Power BI| Excel|  Nigeria | www.linkedin.com/in/justina-ayomide | ayomidejustina3@gmail.com
