@@ -26,7 +26,7 @@ How does monthly income level affect attrition?
 Which combination of factors presents the highest attrition risk?
 
 ## Tools Used
-1. Microsoft Excel   : Data cleaning, feature engineering, exploratory review
+1. Microsoft Excel   : Data cleaning, exploratory review
 2. MySQL             : Structured data analysis and querying
 3. Power BI          : Interactive dashboard development and visualization
 4. DAX               : Custom KPI measures and calculated metrics
@@ -37,10 +37,10 @@ Which combination of factors presents the highest attrition risk?
 2. Total Records     : 1,676 employees
 3. Departments       : Cardiology, Maternity, Neurology
 4. Job Roles         : Administrative, Nurse, Therapist, Other
-5. Total Columns     : 39 (after cleaning and feature engineering)
+5. Total Columns     : 39 
 
 ## Data Preparation
-Data cleaning and feature engineering were performed in Microsoft Excel before importing into MySQL.
+Data cleaning was performed in Microsoft Excel before importing into MySQL.
 ### Steps taken:
 1. Removed junk columns with constant values: Over_18, Employee_Count, Standard_Hours
 2. Standardized job role values: merged Admin → Administrative using Find & Replace
